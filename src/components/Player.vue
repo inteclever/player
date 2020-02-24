@@ -23,7 +23,8 @@
 <script>
 // require styles
 import 'video.js/dist/video-js.css'
-
+var timing = require('../../timingConfig.json');
+console.log(timing);
 import { videoPlayer } from 'vue-video-player'
 
 export default {
@@ -39,13 +40,14 @@ export default {
           playbackRates: [0.7, 1.0, 1.5, 2.0],
           sources: [{
             type: "video/mp4",
-            src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
+            src: timing.movies[0].url
           }],
           poster: "/static/images/author.jpg",
         }
       }
     },
     mounted() {
+      
       console.log('this is current player instance object', this.player)
     },
     computed: {
